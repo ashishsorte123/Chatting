@@ -7,6 +7,7 @@ import {
   NavigationContainer,
   DefaultTheme,
   DarkTheme,
+  useNavigation,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
@@ -34,6 +35,7 @@ import LinkingConfiguration from "./LinkingConfiguration";
 import ChatRoomScreen from "../screens/ChatRoomScreen";
 import HomeScreen from "../screens/HomeScreen";
 import { Feather } from "@expo/vector-icons";
+import UsersScreen from "../screens/UsersScreen";
 
 export default function Navigation({
   colorScheme,
@@ -72,6 +74,12 @@ function RootNavigator() {
       />
 
       <Stack.Screen
+        name="UsersScreen"
+        component={UsersScreen}
+        options={{ title: "Users" }}
+      />
+
+      <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
@@ -82,6 +90,7 @@ function RootNavigator() {
 
 const HomeHeader = (props) => {
   const { width } = useWindowDimensions();
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -114,12 +123,14 @@ const HomeHeader = (props) => {
         color="black"
         style={{ marginHorizontal: 5 }}
       />
-      <Feather
-        name="edit-2"
-        size={24}
-        color="black"
-        style={{ marginHorizontal: 20 }}
-      />
+      <Pressable onPress={() => navigation.navigate("UsersScreen")}>
+        <Feather
+          name="edit-2"
+          size={24}
+          color="black"
+          style={{ marginHorizontal: 20 }}
+        />
+      </Pressable>
     </View>
   );
 };
