@@ -17,15 +17,15 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "userID": {
-                    "name": "userID",
+                "chatroomID": {
+                    "name": "chatroomID",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": true,
                     "attributes": []
                 },
-                "chatroomID": {
-                    "name": "chatroomID",
+                "userID": {
+                    "name": "userID",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": true,
@@ -58,18 +58,18 @@ export const schema = {
                 {
                     "type": "key",
                     "properties": {
-                        "name": "byUser",
+                        "name": "byChatRoom",
                         "fields": [
-                            "userID"
+                            "chatroomID"
                         ]
                     }
                 },
                 {
                     "type": "key",
                     "properties": {
-                        "name": "byChatRoom",
+                        "name": "byUser",
                         "fields": [
-                            "chatroomID"
+                            "userID"
                         ]
                     }
                 },
@@ -108,20 +108,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "LastMessage": {
-                    "name": "LastMessage",
-                    "isArray": false,
-                    "type": {
-                        "model": "Message"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "association": {
-                        "connectionType": "HAS_ONE",
-                        "associatedWith": "id",
-                        "targetName": "chatRoomLastMessageId"
-                    }
-                },
                 "Messages": {
                     "name": "Messages",
                     "isArray": true,
@@ -148,6 +134,20 @@ export const schema = {
                     "association": {
                         "connectionType": "HAS_MANY",
                         "associatedWith": "chatRoom"
+                    }
+                },
+                "LastMessage": {
+                    "name": "LastMessage",
+                    "isArray": false,
+                    "type": {
+                        "model": "Message"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "HAS_ONE",
+                        "associatedWith": "id",
+                        "targetName": "chatRoomLastMessageId"
                     }
                 },
                 "createdAt": {
@@ -230,20 +230,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "Messages": {
-                    "name": "Messages",
-                    "isArray": true,
-                    "type": {
-                        "model": "Message"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "userID"
-                    }
-                },
                 "chatrooms": {
                     "name": "chatrooms",
                     "isArray": true,
@@ -256,6 +242,20 @@ export const schema = {
                     "association": {
                         "connectionType": "HAS_MANY",
                         "associatedWith": "user"
+                    }
+                },
+                "Messages": {
+                    "name": "Messages",
+                    "isArray": true,
+                    "type": {
+                        "model": "Message"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "userID"
                     }
                 },
                 "createdAt": {

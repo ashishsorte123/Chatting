@@ -1,19 +1,26 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-chatting-staging-120136-authRole",
-      "UnauthRoleArn": "arn:aws:iam::495215112334:role/amplify-chatting-staging-120136-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::495215112334:role/amplify-chatting-staging-120136-authRole",
+      "AuthRoleName": "amplify-chatting-staging-80804-authRole",
+      "UnauthRoleArn": "arn:aws:iam::495215112334:role/amplify-chatting-staging-80804-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::495215112334:role/amplify-chatting-staging-80804-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-chatting-staging-120136-deployment",
-      "UnauthRoleName": "amplify-chatting-staging-120136-unauthRole",
-      "StackName": "amplify-chatting-staging-120136",
-      "StackId": "arn:aws:cloudformation:us-east-1:495215112334:stack/amplify-chatting-staging-120136/df30e960-841f-11ec-8acb-0a77912f1803",
-      "AmplifyAppId": "dugjfj2ue85q6"
+      "DeploymentBucketName": "amplify-chatting-staging-80804-deployment",
+      "UnauthRoleName": "amplify-chatting-staging-80804-unauthRole",
+      "StackName": "amplify-chatting-staging-80804",
+      "StackId": "arn:aws:cloudformation:us-east-1:495215112334:stack/amplify-chatting-staging-80804/6a05e6a0-84c8-11ec-b560-1222c22090c1",
+      "AmplifyAppId": "d22v1slj6tkzat",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-chatting-staging-80804-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
         "Chatting": {}
+      },
+      "function": {
+        "ChattingPostConfirmation": {
+          "deploymentBucketName": "amplify-chatting-staging-80804-deployment",
+          "s3Key": "amplify-builds/ChattingPostConfirmation-6e3673554a782f676376-build.zip"
+        }
       }
     }
   }
